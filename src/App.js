@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { SplitScreen } from "./components/split-screen";
 
-function App() {
+const LeftSideComponent = ({ title }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <h2 style={{ backgroundColor: 'crimson' }}>{title}</h2>
+  )
 }
 
-export default App;
+const RightSideComponent = ({ title }) => {
+  return (
+    <h2 style={{ backgroundColor: 'yellow' }}>{title}</h2>
+  )
+}
+
+export default function App() {
+  return (<><SplitScreen leftWidth={1} rightWidth={3}>
+    <LeftSideComponent title={'LEFT'} />
+    <RightSideComponent title={'RIGHT'} />
+  </SplitScreen></>)
+}
