@@ -1,20 +1,13 @@
-import { SplitScreen } from "./components/split-screen";
-
-const LeftSideComponent = ({ title }) => {
-  return (
-    <h2 style={{ backgroundColor: 'crimson' }}>{title}</h2>
-  )
-}
-
-const RightSideComponent = ({ title }) => {
-  return (
-    <h2 style={{ backgroundColor: 'yellow' }}>{title}</h2>
-  )
-}
+import { Modal } from "./components/modals/Modal";
+import { LargeBookListItem } from "./components/books/LargeListItems";
+import { books } from "./data/books";
 
 export default function App() {
-  return (<><SplitScreen leftWidth={1} rightWidth={3}>
-    <LeftSideComponent title={'LEFT'} />
-    <RightSideComponent title={'RIGHT'} />
-  </SplitScreen></>)
+  return (
+    <>
+      <Modal>
+        <LargeBookListItem book={books[0]} />
+      </Modal>
+    </>
+  );
 }
